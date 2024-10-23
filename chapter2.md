@@ -1,4 +1,4 @@
-# Задания по Python + c++
+# Задания по Python + c++ (Chapter 2 - все)
 ## 1
 # Python
 ```python
