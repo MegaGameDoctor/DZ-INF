@@ -129,74 +129,10 @@ print(f(325))
 ## 9
 ```python
 g = {}
-with open("iban_length.txt") as file:
+file = open("iban_length.txt")
     for line in file:
         code, length = line.split()
         g[code] = int(length)
 
 print(g)
-```
-## 10
-```python
-
-```
-## 25
-```python
-
-```
-## 25
-```python
-
-```
-## 25
-```python
-
-```
-## 25
-```python
-
-```
-## 25
-```python
-
-```
-## 25
-```python
-
-```
-## 25
-```python
-
-```
-## 25
-```python
-
-```
-## 25
-```python
-
-```
-## 25
-```python
-
-```
-## 25
-```python
-
-```
-## 25
-```python
-
-```
-## 25
-```python
-
-```
-## 25
-```python
-
-```
-## 25
-```python
-
 ```
