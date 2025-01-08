@@ -349,7 +349,81 @@ result = dfs(graph, start_vertex)
 print("Обход в глубину:", result)
 # Ожидаемый результат: ['A', 'B', 'D', 'E', 'H', 'C', 'F', 'G', 'I']
 ```
-## Балльное задание (- баллов) - 123
+## Сортировка карт
 ```python
-print("СКОРО БУДЕТ!")
+import random
+
+def quick_sort_deck(deck):
+    if len(deck) <= 1:
+        return deck
+    a = random.choice(deck)
+    left = [x for x in deck if x < a]
+    middle = [x for x in deck if x == a]
+    right = [x for x in deck if x > a]
+    return quick_sort_deck(left) + middle + quick_sort_deck(right)
+
+deck = [4, 2, 7, 1, 3, 5]
+sorted_deck = quick_sort_deck(deck)
+print(sorted_deck)
+
+# Тест 1
+assert quick_sort_deck([4, 2, 7, 1, 3, 5]) == [1, 2, 3, 4, 5, 7]
+# Тест 2
+assert quick_sort_deck([10, 5, 3, 8]) == [3, 5, 8, 10]
+# Тест 3
+assert quick_sort_deck([1]) == [1]
+# Тест 4
+assert quick_sort_deck([3, 2]) == [2, 3]
+# Тест 5
+assert quick_sort_deck([7, 3, 3, 4, 1, 2, 5]) == [1, 2, 3, 3, 4, 5, 7]
+print("OK!")
 ```
+# 10
+```python
+def find_quirky_numbers(digit_count):
+    a=[]
+    for i in range(int ('1'+'0'*digit_count)):
+        s=i
+        i=str(i)
+        while len(i)<digit_count:
+            i='0'+i
+        s1=int(i[:digit_count//2])
+        s2 = int(i[(digit_count // 2):])
+        if s1**2+2*s1*s2+s2**2==s:
+            a.append(i)
+    print(a)
+    return a
+
+# Тесты
+def test_find_quirky_numbers():
+    # Тест 1
+    digit_count = 2
+    expected_output = ['00', '01', '81']
+    assert find_quirky_numbers(digit_count) == expected_output
+
+    # Тест 2
+    digit_count = 4
+    expected_output = ['0000', '0001', '0004', '0009', '0016', '0025',
+                       '0040', '0081', '0096', '0160', '0250', '0400',
+                       '0640', '0810', '1000', '1024', '1600', '2025',
+                       '2500', '3025', '3600', '4000', '6400', '8100',
+                       '9600']
+    assert find_quirky_numbers(digit_count) == expected_output
+
+    # Тест 3
+    digit_count = 6
+    expected_output = []  # Не ожидается никаких "причудливых" чисел
+    assert find_quirky_numbers(digit_count) == expected_output
+
+    # Тест 4
+    digit_count = 8
+    expected_output = []  # Не ожидается никаких "причудливых" чисел
+    assert find_quirky_numbers(digit_count) == expected_output
+
+    print("OK!")
+
+
+# Запустите тесты
+test_find_quirky_numbers()
+```
+
